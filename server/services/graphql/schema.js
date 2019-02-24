@@ -1,15 +1,10 @@
 const gql = require('apollo-server-express').gql
 
 const typeDefinitions = gql`
-  type Query {
-    hello: String
-  }
-
   type Post {
     id: Int
     text: String
     user: User
-
   }
 
   type RootQuery {
@@ -36,10 +31,7 @@ const typeDefinitions = gql`
   }
 
   type RootMutation {
-    addPost(
-      post: PostInput!, 
-      user: UserInput!
-    ): Post
+    addPost(post: PostInput!, user: UserInput!): Post
   }
 `
 

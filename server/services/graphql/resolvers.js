@@ -26,8 +26,10 @@ module.exports = function() {
         return postObject
       }
     },
-    Query: {
-      hello: () => 'Hello World'
+    Post: {
+      user(post, args, context) {
+        return post.getUser()
+      }
     }
   }
 

@@ -32,6 +32,7 @@
     "server:start": "nodemon --ignore '*.test.js' --watch server server/server.js",
     "db:migrate": "npx sequelize db:migrate --migrations-path server/migrations --config server/config/database.js",
     "db:seed": "npx sequelize db:seed:all --seeders-path server/seeders --config server/config/database.js",
+    "db:seed:undo": "sequelize db:seed:undo:all --seeders-path server/seeders --config server/config/database.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
