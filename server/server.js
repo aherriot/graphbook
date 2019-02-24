@@ -4,14 +4,22 @@ const compression = require('compression')
 const helmet = require('helmet')
 const cors = require('cors')
 
-const services = require('./services')
+const db = require('./database')
+const servicesLoader = require('./services')
+
+const utils = {
+  db
+}
+
+// pass db to services
+const services = servicesLoader(utils)
 
 const app = express()
 
 if (process.env.NODE_ENV === 'production') {
   app.use(compression())
 
-  // helmet
+  // set up some security config to prevent common vulnerabilities
   app.use(helmet())
   app.use(
     helmet.contentSecurityPolicy({

@@ -14,10 +14,14 @@
     "graphql": "^14.1.1",
     "graphql-tools": "^4.0.4",
     "helmet": "^3.15.1",
+    "pg": "^7.8.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
-    "styled-components": "^4.1.3"
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0",
+    "styled-components": "^4.1.3",
+    "winston": "^3.2.1"
   },
   "engines": {
     "node": ">=8.x"
@@ -25,7 +29,9 @@
   "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-scripts start",
-    "start-server": "nodemon --ignore '*.test.js' --watch server server/server.js",
+    "server:start": "nodemon --ignore '*.test.js' --watch server server/server.js",
+    "db:migrate": "npx sequelize db:migrate --migrations-path server/migrations --config server/config/database.js",
+    "db:seed": "npx sequelize db:seed:all --seeders-path server/seeders --config server/config/database.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

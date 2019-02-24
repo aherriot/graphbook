@@ -1,5 +1,5 @@
 const graphql = require('./graphql')
 
-module.exports = {
-  graphql
-}
+module.exports = utils => ({
+  graphql: graphql(utils)
+})
